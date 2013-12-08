@@ -1,7 +1,7 @@
 FortranPatterns
 ===============
 
-Popular design patterns implemented in Fortran.
+Implementation of popular design patterns in Fortran. This is intended to facilitate the community using Fortran for computationally expensive tasks. The main philosophy here is to make these patterns available for improving the reusability and efficiency of the code. 
 
 Compiler Suggested: Fortran 90.
 
@@ -39,3 +39,4 @@ Compiler Suggested: Fortran 90.
 Please refer to:
 * Design Patterns: http://www.uml.org.cn/c++/pdf/DesignPatterns.pdf
 
+Contributions are welcome!
