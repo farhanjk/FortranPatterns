@@ -12,8 +12,6 @@ module factory
 		procedure :: print=>drawAny
 	end type shape
 
-    class(shape), pointer :: shapePointer 
-
     type, public, extends (shape) :: rectangle
     end type rectangle	
 
@@ -22,11 +20,6 @@ module factory
 
 contains
 	
-	function getShapePointer() result(sh)
-	    class(shape), pointer :: sh
-		sh => shapePointer 
-	end function
-		
 	subroutine drawAny(this)
 	    class(shape), intent(in) :: this
 	    print *, "The item is ", this%value
@@ -42,7 +35,7 @@ module assign_mod
 		module procedure assign_sub 
 	end interface
 	private:: assign_sub
-	public:: assignment(=), temp
+	public:: assignment(=), getShape
 contains
 	subroutine assign_sub(v,e)
 	    class(shape), intent(in) :: e
@@ -50,7 +43,7 @@ contains
 		allocate(v, source=e)
 	end subroutine assign_sub
 	
-	subroutine temp(str,res)
+	subroutine getShape(str,res)
 		character(*), intent(in) :: str
 		class(shape), allocatable, intent(out) :: res
 		if (str .EQ. 'Rectangle') then
@@ -58,7 +51,7 @@ contains
 		else
 			allocate(res, source=circle("Circle"))
 		endif
-	end subroutine temp
+	end subroutine getShape
 end module assign_mod
 
 program shape_interface
@@ -67,10 +60,10 @@ program shape_interface
 	
     class(shape),allocatable :: sh
 
-	call temp("Rectangle", sh)
+	call getShape("Rectangle", sh)
 	call sh%print
 
-	call temp("Circle", sh)
+	call getShape("Circle", sh)
 	call sh%print
 
 	deallocate(sh)
