@@ -9,39 +9,58 @@
 module factory
 	
 	!shape (base type), rectangle & circle (extends shape), fromShapeFactoryGetShape (main factory interface)
-	public :: shape, rectangle, circle, fromShapeFactoryGetShape
+	public :: shape, fromShapeFactoryGetShape
 
 	private
 
 	!base type
-	type shape
+	type, abstract :: shape
 		character(100) :: value
 	contains
-		procedure :: printShape => drawShape
+		procedure(drawShape), deferred :: printShape
 	end type
+	!Defines interface for printShape
+	abstract interface
+		subroutine drawShape(this)
+			import shape
+			class(shape), intent(in) :: this
+		end subroutine
+	end interface
 
+	!Concrete shape, implements printShape
 	type, extends(shape) :: rectangle 
+	contains
+		procedure :: printShape => printRectangle
 	end type
 	
+	!Concrete shape, implements printShape
 	type, extends(shape) :: circle
+	contains
+		procedure :: printShape => printCircle
 	end type
 
 contains
-	!prints value of the shape
-	subroutine drawShape(v)
-		class(shape), intent(in) :: v
-		print *, v%value
+	!prints value of the rectangle
+	subroutine printRectangle(this)
+		class(rectangle), intent(in) :: this
+		print *, "This is a " // this%value
 	end subroutine
 	
+	!prints value of the circle
+	subroutine printCircle(this)
+		class(circle), intent(in) :: this
+		print *, "This is a " // this%value
+	end subroutine
+
 	!factory interface
 	subroutine fromShapeFactoryGetShape(v,e)
 		character(*), intent(in) :: v
 		class(shape), allocatable, intent(out) :: e
 		
 		if (v .EQ. 'Rectangle') then
-			allocate(e, source=rectangle("This shape is rectangle"))
+			allocate(e, source=rectangle("Rectangle"))
 		else
-			allocate(e, source=circle("This shape is circle"))
+			allocate(e, source=circle("Circle"))
 		endif
 	end subroutine fromShapeFactoryGetShape
 	

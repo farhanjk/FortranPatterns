@@ -14,6 +14,10 @@ program factory_main
 	use factory
 	!Alocatable shape address
 	class(shape), allocatable :: shapeInstance
+
+	!!! allocate(shapeInstance, source=shape("shape")) !!!
+	!!! Error: Can't construct ABSTRACT type 'shape' !!!
+	
 	!Get a rectangle and verify by printing
 	call fromShapeFactoryGetShape("Rectangle", shapeInstance)
 	call shapeInstance%printShape
