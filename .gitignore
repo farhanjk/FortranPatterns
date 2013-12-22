@@ -25,6 +25,7 @@ misc.xml
 *.class
 
 *.mod
+*.o
 
 target/
 

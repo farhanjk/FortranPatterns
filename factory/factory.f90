@@ -1,70 +1,41 @@
-!Use gfortran factory.f90 -o factory to compile
+!The shape factory
 module factory
-	implicit none
+	
+	!shape (base type), rectangle & circle (extends shape), fromShapeFactoryGetShape (main factory interface)
+	public :: shape, rectangle, circle, fromShapeFactoryGetShape
 
 	private
-	
-	public :: shape, circle
-	
-	type  shape
-		character(10) value
+
+	!base type
+	type shape
+		character(100) :: value
 	contains
-		procedure :: print=>drawAny
-	end type shape
+		procedure :: printShape => drawShape
+	end type
 
-    type, public, extends (shape) :: rectangle
-    end type rectangle	
-
-    type, public, extends (shape) :: circle
-    end type circle	
+	type, extends(shape) :: rectangle 
+	end type
+	
+	type, extends(shape) :: circle
+	end type
 
 contains
+	!prints value of the shape
+	subroutine drawShape(v)
+		class(shape), intent(in) :: v
+		print *, v%value
+	end subroutine
 	
-	subroutine drawAny(this)
-	    class(shape), intent(in) :: this
-	    print *, "The item is ", this%value
-	end subroutine drawAny
+	!factory interface
+	subroutine fromShapeFactoryGetShape(v,e)
+		character(*), intent(in) :: v
+		class(shape), allocatable, intent(out) :: e
+		
+		if (v .EQ. 'Rectangle') then
+			allocate(e, source=rectangle("This shape is rectangle"))
+		else
+			allocate(e, source=circle("This shape is circle"))
+		endif
+	end subroutine fromShapeFactoryGetShape
 	
 end module factory
-
-module assign_mod
-	use factory
-	implicit none 
-
-	interface assignment(=)
-		module procedure assign_sub 
-	end interface
-	private:: assign_sub
-	public:: assignment(=), getShape
-contains
-	subroutine assign_sub(v,e)
-	    class(shape), intent(in) :: e
-	    class(shape), intent(out), pointer :: v
-		allocate(v, source=e)
-	end subroutine assign_sub
-	
-	subroutine getShape(str,res)
-		character(*), intent(in) :: str
-		class(shape), allocatable, intent(out) :: res
-		if (str .EQ. 'Rectangle') then
-			allocate(res, source=rectangle("Rectangle"))
-		else
-			allocate(res, source=circle("Circle"))
-		endif
-	end subroutine getShape
-end module assign_mod
-
-program shape_interface
-	use assign_mod
-	use factory
-	
-    class(shape),allocatable :: sh
-
-	call getShape("Rectangle", sh)
-	call sh%print
-
-	call getShape("Circle", sh)
-	call sh%print
-
-	deallocate(sh)
-end program shape_interface
