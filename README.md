@@ -8,9 +8,9 @@ Compiler Suggested: Fortran 90.
 ### List of patterns:
 
 #### Creational Patterns
-- [x] Abstract Factory
+- [X] Abstract Factory
 - [ ] Builder
-- [ ] Factory Method
+- [X] Factory Method
 - [ ] Prototype
 - [ ] Singleton
 
