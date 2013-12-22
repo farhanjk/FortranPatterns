@@ -1,7 +1,16 @@
+!Copyright (c) 2013 Farhan J. Khan
+!THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+!IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+!FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+!COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+!IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+!CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 module abstractfactory
 	implicit none
 	public shape, color, theabstractfactory, factoryProducer
 	private
+	!Interface for shapes
 	type, abstract :: shape
 	contains
 		procedure(drawInterface), deferred :: draw
@@ -13,16 +22,19 @@ module abstractfactory
 		end subroutine
 	end interface
 	
+	!Concrete type rectange implements shape
 	type, extends(shape) :: rectangle
 	contains
 		procedure :: draw=>drawRectangle
 	end type
 
+	!Concrete type circle implements shape
 	type, extends(shape) :: circle
 	contains
 		procedure :: draw=>drawCircle
 	end type
 
+	!Interface for colors
 	type, abstract :: color
 	contains
 		procedure(fillInterface), deferred :: fill
@@ -33,17 +45,20 @@ module abstractfactory
 			class(color), intent(in) :: this
 		end subroutine
 	end interface
-
+	
+	!Concrete class red implementing color
 	type, extends(color) :: red
 	contains
 		procedure :: fill=>fillRed
 	end type
 
+	!Concrete class blue implementing color
 	type, extends(color) :: blue
 	contains
 		procedure :: fill=>fillBlue
 	end type
 	
+	!Abstract class to get shape and color
 	type, abstract :: theAbstractFactory
 	contains
 		procedure(getColorInterface), deferred :: getColor
@@ -66,6 +81,7 @@ module abstractfactory
 		end subroutine
 	end interface
 	
+	!Concrete implementation of theAbstractFactory 
 	type, extends(theAbstractFactory) :: shapefactory
 	contains
 		procedure :: getShape => getShapeImpl
@@ -78,6 +94,7 @@ module abstractfactory
 		procedure :: getColor => getColorImpl
 	end type
 	
+	!Factory producer
 	type factoryProducer
 	contains
 		procedure :: getFactory => getFactoryImpl
