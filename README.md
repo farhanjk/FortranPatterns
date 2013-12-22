@@ -5,10 +5,10 @@ Implementation of popular design patterns in Fortran. This is intended to facili
 
 Compiler Suggested: Fortran 90.
 
-### List of patterns (Planned):
+### List of patterns:
 
 #### Creational Patterns
-- [ ] Abstract Factory
+- [x] Abstract Factory
 - [ ] Builder
 - [ ] Factory Method
 - [ ] Prototype
