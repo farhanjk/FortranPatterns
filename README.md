@@ -12,7 +12,7 @@ Compiler Suggested: Fortran 90.
 - [ ] Builder
 - [X] Factory Method
 - [ ] Prototype
-- [ ] Singleton
+- [X] Singleton
 
 #### Structural Patterns
 - [ ] Adapter
