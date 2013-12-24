@@ -9,7 +9,7 @@ Compiler Suggested: Fortran 90.
 
 #### Creational Patterns
 - [X] Abstract Factory
-- [ ] Builder
+- [X] Builder
 - [X] Factory Method
 - [ ] Prototype
 - [X] Singleton
