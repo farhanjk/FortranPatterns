@@ -11,7 +11,7 @@ Compiler Suggested: Fortran 90.
 - [X] Abstract Factory
 - [X] Builder
 - [X] Factory Method
-- [ ] Prototype
+- [X] Prototype
 - [X] Singleton
 
 #### Structural Patterns
