@@ -15,7 +15,7 @@ Compiler Suggested: Fortran 90.
 - [X] Singleton
 
 #### Structural Patterns
-- [ ] Adapter
+- [X] Adapter
 - [ ] Bridge
 - [ ] Composite
 - [ ] Decorator
@@ -60,7 +60,6 @@ License
 	IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 	CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Please refer to [1]:
 [1]: http://www.uml.org.cn/c++/pdf/DesignPatterns.pdf
 
 Contributions are welcome!
