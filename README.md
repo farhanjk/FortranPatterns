@@ -3,7 +3,7 @@ FortranPatterns
 
 Implementation of popular design patterns in Fortran. This is intended to facilitate the community using Fortran for computationally expensive tasks. The main philosophy here is to make these patterns available for improving the reusability and efficiency of the code. 
 
-Compiler Suggested: Fortran 90.
+Tested on: GNU Fortran (GCC) 4.8.
 
 ### List of patterns:
 
@@ -16,7 +16,7 @@ Compiler Suggested: Fortran 90.
 
 #### Structural Patterns
 - [X] Adapter
-- [ ] Bridge
+- [X] Bridge
 - [ ] Composite
 - [ ] Decorator
 - [ ] Façade
