@@ -48,22 +48,26 @@ module adapter_module
 	end type concreteConsultant
 	
 	!Consultant adapter paves path between consultant and employee
-	type, extends(employee) :: consultantAdapter
-		class(consultant), allocatable :: c
-	contains
-		procedure :: showHappiness => showHappinessConsultantAdapterImpl
-	end type consultantAdapter
+	type, extends(employee), abstract :: consultantAdapterIntermediary
+	end type consultantAdapterIntermediary
 	
 	!Constructor for initializing the adapter
 	interface consultantAdapter
  	    module procedure init_consultantAdapter
     end interface
+	
+	!Consultant adapter paves path between consultant and employee
+	type, extends(consultantAdapterIntermediary) :: consultantAdapter
+		class(consultant), allocatable :: c
+	contains
+		procedure :: showHappiness => showHappinessConsultantAdapterImpl
+		procedure :: showSmiles => showSmilesConsultantAdapterImpl
+	end type consultantAdapter
 contains
 		
     type(consultantAdapter) function init_consultantAdapter(c)
 		class(consultant), intent(in) :: c
         allocate(init_consultantAdapter%c, source = c)
-		init_consultantAdapter%happiness = c%smiles
      end function
 		
 	subroutine showHappinessImpl(this)
@@ -78,6 +82,12 @@ contains
 	
 	subroutine showHappinessConsultantAdapterImpl(this)
 		class(consultantAdapter), intent(in) :: this
-		print *, this%happiness	
+		print *, this%c%smiles	
+	end subroutine
+
+	
+	subroutine showSmilesConsultantAdapterImpl(this)
+		class(consultantAdapter), intent(in) :: this
+		print *, this%c%smiles	
 	end subroutine
 end module adapter_module
