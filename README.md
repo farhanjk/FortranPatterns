@@ -17,7 +17,7 @@ Tested on: GNU Fortran (GCC) 4.8.
 #### Structural Patterns
 - [X] Adapter
 - [X] Bridge
-- [ ] Composite
+- [X] Composite
 - [ ] Decorator
 - [ ] Façade
 - [ ] Flyweight
