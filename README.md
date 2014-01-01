@@ -18,6 +18,7 @@ Tested on: GNU Fortran (GCC) 4.8.
 - [X] Adapter
 - [X] Bridge
 - [X] Composite
+- [X] Criteria
 - [ ] Decorator
 - [ ] Façade
 - [ ] Flyweight
