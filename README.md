@@ -19,7 +19,7 @@ Tested on: GNU Fortran (GCC) 4.8.
 - [X] Bridge
 - [X] Composite
 - [X] Criteria
-- [ ] Decorator
+- [X] Decorator
 - [ ] Façade
 - [ ] Flyweight
 - [ ] Proxy
