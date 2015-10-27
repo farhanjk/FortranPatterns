@@ -32,7 +32,7 @@ Tested on: GNU Fortran (GCC) 4.8.
 - [ ] Mediator
 - [ ] Memento
 - [ ] Observer
-- [ ] State
+- [X] State
 - [X] Strategy
 - [ ] Template Method
 - [ ] Visitor
