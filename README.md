@@ -33,7 +33,7 @@ Tested on: GNU Fortran (GCC) 4.8.
 - [ ] Memento
 - [ ] Observer
 - [ ] State
-- [ ] Strategy
+- [X] Strategy
 - [ ] Template Method
 - [ ] Visitor
 
