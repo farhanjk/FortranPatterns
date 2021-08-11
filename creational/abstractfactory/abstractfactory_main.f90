@@ -8,32 +8,32 @@
 
 !Main program
 program abstractfactory_main
-	use abstractfactory
-	!Allocatable for the shape and color factory
-	class(theAbstractFactory), allocatable :: theFactory
-	!Allocatable for shape instance
-	class(shape), allocatable :: shapeInstance
-	!Allocatable for color instance
-	class(color), allocatable :: colorInstance
+    use abstractfactory, only: shape, color, theabstractfactory, factoryProducer
+    !Allocatable for the shape and color factory
+    class(theAbstractFactory), allocatable :: theFactory
+    !Allocatable for shape instance
+    class(shape), allocatable :: shapeInstance
+    !Allocatable for color instance
+    class(color), allocatable :: colorInstance
 
-	!The factory producer
-	type(factoryProducer) :: factoryProducerInstance
+    !The factory producer
+    type(factoryProducer) :: factoryProducerInstance
 
-	!Get shape factory
-	call factoryProducerInstance%getFactory('Shape', theFactory)
-	!Get rectangle from the factory
-	call theFactory%getShape('Rectangle', shapeInstance)
-	!draw the rectangle
-	call shapeInstance%draw
-	deallocate(shapeInstance)
+    !Get shape factory
+    call factoryProducerInstance%getFactory('Shape', theFactory)
+    !Get rectangle from the factory
+    call theFactory%getShape('Rectangle', shapeInstance)
+    !draw the rectangle
+    call shapeInstance%draw
+    deallocate(shapeInstance)
 
-	!Get color factory
-	call factoryProducerInstance%getFactory('Color', theFactory)
-	!Get blue from the color factory
-	call theFactory%getColor('Blue', colorInstance)
-	!Fill the blue color
-	call colorInstance%fill
-	deallocate(colorInstance)
+    !Get color factory
+    call factoryProducerInstance%getFactory('Color', theFactory)
+    !Get blue from the color factory
+    call theFactory%getColor('Blue', colorInstance)
+    !Fill the blue color
+    call colorInstance%fill
+    deallocate(colorInstance)
 
-	deallocate(theFactory)
+    deallocate(theFactory)
 end program abstractfactory_main

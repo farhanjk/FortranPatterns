@@ -25,7 +25,7 @@ Tested on: GNU Fortran (GCC) 4.8.
 - [ ] Proxy
  
 #### Behavioral Patterns
-- [ ] Chain of Responsibility
+- [x] Chain of Responsibility
 - [ ] Command
 - [ ] Interpreter
 - [ ] Iterator
@@ -36,6 +36,15 @@ Tested on: GNU Fortran (GCC) 4.8.
 - [X] Strategy
 - [ ] Template Method
 - [ ] Visitor
+
+### Build with [fortran-lang/fpm](https://github.com/fortran-lang/fpm)
+Fortran Package Manager (fpm) is a great package manager and build system for Fortran.   
+You can build and test using provided `fpm.toml`:
+```bash
+fpm build --flag "-g"
+fpm test --flag "-g" --list     !! test list
+fpm test --flag "-g" <test_name, see `fpm.toml` or `test_list`>
+```
 
 License
 --------
