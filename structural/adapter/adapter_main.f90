@@ -8,31 +8,31 @@
 
 !Main Program
 program adapter_main
-	use adapter_module
-	
-	class(employee), allocatable :: e1
-	class(employee), allocatable :: e2
-	class(employee), allocatable :: e3
-	class(consultant), allocatable :: c1
-	type(consultantAdapter) :: ca
-	
-	!2 employees and 1 consultant	
-	allocate(e1, source = concreteEmployee(10))
-	allocate(e2, source = concreteEmployee(20))
-	allocate(c1, source = concreteConsultant(30))
-	
-	allocate(e3, source = e1)
-	call e3%showHappiness()
-	deallocate(e3)
+    use adapter_module
+    
+    class(employee), allocatable :: e1
+    class(employee), allocatable :: e2
+    class(employee), allocatable :: e3
+    class(consultant), allocatable :: c1
+    type(consultantAdapter) :: ca
+    
+    !2 employees and 1 consultant	
+    allocate(e1, source = concreteEmployee(10))
+    allocate(e2, source = concreteEmployee(20))
+    allocate(c1, source = concreteConsultant(30))
+    
+    allocate(e3, source = e1)
+    call e3%showHappiness()
+    deallocate(e3)
 
-	allocate(e3, source = e2)
-	call e3%showHappiness()
-	deallocate(e3)
+    allocate(e3, source = e2)
+    call e3%showHappiness()
+    deallocate(e3)
 
-	!consultant adapter acts as an employee
-	ca = consultantAdapter(c1)
-	allocate(e3, source =ca)
-	call e3%showHappiness()
-	deallocate(e3)
-	  
+    !consultant adapter acts as an employee
+    ca = consultantAdapter(c1)
+    allocate(e3, source =ca)
+    call e3%showHappiness()
+    deallocate(e3)
+      
 end program adapter_main

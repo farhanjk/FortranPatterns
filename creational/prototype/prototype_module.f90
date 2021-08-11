@@ -8,22 +8,22 @@
 
 !Module providing implementation of prototype pattern
 module prototype_module
-	implicit none
-	
-	public :: shape
-	
-	type shape
-		!Assuming not_expensive value can be set in no time!
-		integer :: not_expensive = 0
-		!Assuming "expensive" needs a lot of time to set!
-		integer :: expensive = 0
-	contains
-		procedure :: clone => cloneImpl
-	end type shape
+    implicit none
+    
+    public :: shape
+    
+    type shape
+        !Assuming not_expensive value can be set in no time!
+        integer :: not_expensive = 0
+        !Assuming "expensive" needs a lot of time to set!
+        integer :: expensive = 0
+    contains
+        procedure :: clone => cloneImpl
+    end type shape
 contains
-	function cloneImpl(this) result(out)
-		class(shape), intent(in) :: this
-		type(shape) :: out
-		out%expensive = this%expensive
-	end function cloneImpl
+    function cloneImpl(this) result(out)
+        class(shape), intent(in) :: this
+        type(shape) :: out
+        out%expensive = this%expensive
+    end function cloneImpl
 end module prototype_module

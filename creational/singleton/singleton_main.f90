@@ -8,24 +8,24 @@
 
 !Main Program
 program singleton_main
-	!Module providing singleton functionality
-	use singleton
-	!This will create singleton object
-	call construct_singleton()
-	!Print the value (0)
-	print *, get_singleton_value()
-	!set the value for singleton
-	call set_singleton_value(89)
-	!Print the value of singleton  (89)
-	print *, get_singleton_value()
-	!This will ignore creation as the instance is already available
-	call construct_singleton()
-	!Print the value (still 89!)
-	print *, get_singleton_value()
-	!Dispose off the singleton instance
-	call dispose_singleton()
-	!This will create singleton object
-	call construct_singleton()
-	!Print the value (0)
-	print *, get_singleton_value()
+    !Module providing singleton functionality
+    use singleton
+    !This will create singleton object
+    call construct_singleton()
+    !Print the value (0)
+    print *, get_singleton_value()
+    !set the value for singleton
+    call set_singleton_value(89)
+    !Print the value of singleton  (89)
+    print *, get_singleton_value()
+    !This will ignore creation as the instance is already available
+    call construct_singleton()
+    !Print the value (still 89!)
+    print *, get_singleton_value()
+    !Dispose off the singleton instance
+    call dispose_singleton()
+    !This will create singleton object
+    call construct_singleton()
+    !Print the value (0)
+    print *, get_singleton_value()
 end program singleton_main
