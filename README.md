@@ -25,7 +25,7 @@ Tested on: GNU Fortran (GCC) 4.8.
 - [ ] Proxy
  
 #### Behavioral Patterns
-- [ ] Chain of Responsibility
+- [x] Chain of Responsibility
 - [ ] Command
 - [ ] Interpreter
 - [ ] Iterator
