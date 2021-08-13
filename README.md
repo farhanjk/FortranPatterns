@@ -35,7 +35,7 @@ Tested on: GNU Fortran (GCC) 4.8.
 - [X] State
 - [X] Strategy
 - [ ] Template Method
-- [ ] Visitor
+- [X] Visitor
 
 License
 --------
