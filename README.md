@@ -31,7 +31,7 @@ Tested on: GNU Fortran (GCC) 4.8.
 - [ ] Iterator
 - [ ] Mediator
 - [ ] Memento
-- [ ] Observer
+- [X] Observer
 - [X] State
 - [X] Strategy
 - [ ] Template Method
