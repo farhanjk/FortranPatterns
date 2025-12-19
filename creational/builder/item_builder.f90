@@ -8,39 +8,39 @@
 
 !Contains definition of item and builder to build the item
 module item_builder
-	implicit none
+    implicit none
 
-	!client will have access to item but cannot instantiate it
-	type, public, abstract :: item
-		integer, private :: value
-	contains
-		procedure(getValueInterface), deferred :: getValue
-	end type 
-	abstract interface 
-		integer function getValueInterface(this)
-			import item
-			class(item), intent(in) :: this
-		end function
-	end interface
-	
-	!Client does not know about any implementation of item
-	type, private, extends(item) :: concreteItem
-	contains
-		procedure :: getValue => getValueImpl
-	end type
+    !client will have access to item but cannot instantiate it
+    type, public, abstract :: item
+        integer, private :: value
+    contains
+        procedure(getValueInterface), deferred :: getValue
+    end type 
+    abstract interface 
+        integer function getValueInterface(this)
+            import item
+            class(item), intent(in) :: this
+        end function
+    end interface
+    
+    !Client does not know about any implementation of item
+    type, private, extends(item) :: concreteItem
+    contains
+        procedure :: getValue => getValueImpl
+    end type
 
 contains
-	!returns item's value
-	integer function getValueImpl(this)
-		class(concreteitem), intent(in) :: this
-		getValueImpl = this%value
-	end function
-		
-	!builds the item
-	type(concreteItem) function buildItem(value)
-		integer, intent(in) :: value
-		type(concreteItem) :: itemInstance
-		itemInstance%value = value
-		buildItem = itemInstance
-	end function
+    !returns item's value
+    integer function getValueImpl(this)
+        class(concreteitem), intent(in) :: this
+        getValueImpl = this%value
+    end function
+        
+    !builds the item
+    type(concreteItem) function buildItem(value)
+        integer, intent(in) :: value
+        type(concreteItem) :: itemInstance
+        itemInstance%value = value
+        buildItem = itemInstance
+    end function
 end module item_builder

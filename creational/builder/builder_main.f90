@@ -8,15 +8,15 @@
 
 !Main program
 program builder_main
-	use item_builder
-	implicit none
-	integer :: value
-	!Allocatable for item
-	class(item), allocatable :: theItem 
-	!build the item
-	allocate(theItem, source = buildItem(45))
-	!get value and verify it
-	value = theItem%getValue()
-	print *, value
-	deallocate(theItem)
+    use item_builder
+    implicit none
+    integer :: value
+    !Allocatable for item
+    class(item), allocatable :: theItem 
+    !build the item
+    allocate(theItem, source = buildItem(45))
+    !get value and verify it
+    value = theItem%getValue()
+    print *, value
+    deallocate(theItem)
 end program builder_main

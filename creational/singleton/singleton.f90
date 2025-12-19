@@ -8,39 +8,39 @@
 
 !Provides singleton functionality
 module singleton
-	implicit none
-	public :: get_singleton_value, construct_singleton, dispose_singleton, set_singleton_value
-	private
-	
-	type singleton_type
-		private
-		integer :: value
-	end type singleton_type
-	
-	type(singleton_type), pointer :: singleton_instance => null()
+    implicit none
+    public :: get_singleton_value, construct_singleton, dispose_singleton, set_singleton_value
+    private
+    
+    type singleton_type
+        private
+        integer :: value
+    end type singleton_type
+    
+    type(singleton_type), pointer :: singleton_instance => null()
 contains
-	subroutine construct_singleton()
-		if (.not. associated(singleton_instance)) then
-			allocate(singleton_instance)
-			singleton_instance%value=0
-		end if
-	end subroutine construct_singleton
-	
-	subroutine dispose_singleton()
-		deallocate(singleton_instance)	
-	end subroutine  dispose_singleton
-	
-	integer function get_singleton_value()
-		if (associated(singleton_instance)) then
-			get_singleton_value = singleton_instance%value
-		endif
-	end function get_singleton_value
-	
-	subroutine set_singleton_value(v)
-		integer, intent(in) :: v
-		if (associated(singleton_instance)) then
-			singleton_instance%value = v
-		endif
-	end subroutine set_singleton_value
-	
+    subroutine construct_singleton()
+        if (.not. associated(singleton_instance)) then
+            allocate(singleton_instance)
+            singleton_instance%value=0
+        end if
+    end subroutine construct_singleton
+    
+    subroutine dispose_singleton()
+        deallocate(singleton_instance)	
+    end subroutine  dispose_singleton
+    
+    integer function get_singleton_value()
+        if (associated(singleton_instance)) then
+            get_singleton_value = singleton_instance%value
+        endif
+    end function get_singleton_value
+    
+    subroutine set_singleton_value(v)
+        integer, intent(in) :: v
+        if (associated(singleton_instance)) then
+            singleton_instance%value = v
+        endif
+    end subroutine set_singleton_value
+    
 end module singleton

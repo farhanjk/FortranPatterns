@@ -8,20 +8,20 @@
 
 !Main Program
 program bridge_main
-	use bridge_module
-	implicit none
+    use bridge_module
+    implicit none
 
-	!shape to draw
-	class(shape), allocatable :: s1
-	!Bridge implementation instances
-	type(redCircleAPI) :: redCircle
-	type(blueCircleAPI) :: blueCircle
+    !shape to draw
+    class(shape), allocatable :: s1
+    !Bridge implementation instances
+    type(redCircleAPI) :: redCircle
+    type(blueCircleAPI) :: blueCircle
 
-	!passing the drawable custom api
-	allocate(s1, source=circleShape(redCircle))
-	call s1%draw
-	deallocate(s1)
-	allocate(s1, source=circleShape(blueCircle))
-	call s1%draw
-	deallocate(s1)
+    !passing the drawable custom api
+    allocate(s1, source=circleShape(redCircle))
+    call s1%draw
+    deallocate(s1)
+    allocate(s1, source=circleShape(blueCircle))
+    call s1%draw
+    deallocate(s1)
 end program bridge_main

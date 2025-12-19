@@ -1,0 +1,76 @@
+name = "FortranPatterns"
+
+
+[library]
+source-dir = "/"
+
+[build]
+auto-executables = false
+auto-examples = false
+auto-tests = false
+
+[[test]]
+name = "CoR"
+source-dir = "behavioral/chain_of_responsibility"
+main = "CoR_main.f90"
+
+[[test]]
+name = "state"
+source-dir = "behavioral/state"
+main = "state_main.f90"
+
+[[test]]
+name = "strategy"
+source-dir = "behavioral/strategy"
+main = "strategy_main.f90"
+
+[[test]]
+name = "abstractfactory"
+source-dir = "creational/abstractfactory"
+main = "abstractfactory_main.f90"
+
+[[test]]
+name = "builder"
+source-dir = "creational/builder"
+main = "builder_main.f90"
+
+[[test]]
+name = "factory"
+source-dir = "creational/factory"
+main = "factory_main.f90"
+
+[[test]]
+name = "prototype"
+source-dir = "creational/prototype"
+main = "prototype_main.f90"
+
+[[test]]
+name = "singleton"
+source-dir = "creational/singleton"
+main = "singleton_main.f90"
+
+[[test]]
+name = "adapter"
+source-dir = "structural/adapter"
+main = "adapter_main.f90"
+
+[[test]]
+name = "bridge"
+source-dir = "structural/bridge"
+main = "bridge_main.f90"
+
+[[test]]
+name = "composite"
+source-dir = "structural/composite"
+main = "composite_main.f90"
+
+[[test]]
+name = "criteria"
+source-dir = "structural/criteria"
+main = "criteria_main.f90"
+
+[[test]]
+name = "decorator"
+source-dir = "structural/decorator"
+main = "decorator_main.f90"
+
