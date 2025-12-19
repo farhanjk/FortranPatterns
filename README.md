@@ -35,7 +35,7 @@ Tested on: GNU Fortran (GCC) 4.8.
 - [X] State
 - [X] Strategy
 - [ ] Template Method
-- [ ] Visitor
+- [X] Visitor
 
 ### Build with [fortran-lang/fpm](https://github.com/fortran-lang/fpm)
 Fortran Package Manager (fpm) is a great package manager and build system for Fortran.   
