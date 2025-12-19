@@ -20,7 +20,7 @@ Tested on: GNU Fortran (GCC) 4.8.
 - [X] Composite
 - [X] Criteria
 - [X] Decorator
-- [ ] Façade
+- [X] Façade
 - [ ] Flyweight
 - [ ] Proxy
  
@@ -64,3 +64,11 @@ License
 [1]: http://www.uml.org.cn/c++/pdf/DesignPatterns.pdf
 
 Contributions are welcome!
+
+Testing
+-------
+
+Structural pattern demos such as the façade include small bash helpers to
+verify their output. For example, run `./structural/facade/run_tests.sh` with a
+Fortran 2008 compiler like `gfortran` available to confirm the home-theater
+transcript matches the expected fixture.
