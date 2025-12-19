@@ -1,0 +1,11 @@
+Getting ready to watch a movie...
+Heating up the popcorn maker
+Popping popcorn
+Turning on the amplifier
+Setting amplifier volume to 7
+Starting the DVD player
+Playing movie: The Fortran Adventure
+Movie finished, shutting everything down.
+Stopping the DVD player
+Turning off the amplifier
+Cooling down the popcorn maker
